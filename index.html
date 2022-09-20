@@ -4,63 +4,183 @@
     <meta charset="utf-8" />
     <link rel="icon" href="images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <title>Anastasiia Smith | FRONT-END SOFTWARE ENGINEER</title>
   </head>
   <body>
-    <header>
-        <p class="about">Hi! I'm<br /> 
-        <span class="my-name"> Anastasiia Smith, Front-end Software Engineer</span><br /> 
+    <div class="resume bg-light">
+      <span class="">
+
         <a href="https://drive.google.com/file/d/1PFIKCjYj7U_a_l62OE98Z0SyOy2KgBs5/view?usp=sharing" target="_blank" rel="noreferrer">My Resume</a>
-        </p>
-    </header>
-    <section class="content">
-        <h2>My skills:</h2>
-        <div class="skills">
-          <img src="./images/html5.png" alt="HTML5" />
-          <img src="./images/css3.png" alt="CSS3" />
-          <img src="./images/js.png" alt="JavaScript" />
-          <img src="./images/bootstrap.png" alt="Bootstrap" />
-          <img src="./images/react.png" alt="React.js" />
-          <img src="./images/python.webp" alt="Python" />
-          <img src="./images/sql.png" alt="SQL" />
+      </span>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <section>
+            <h1 class="text-center">Anastasiia Smith, Front-end Software Engineer</h1>
+            <h2>My skills:</h2>
+            <div class="skills">
+              <img src="./images/html5.png" alt="HTML5" />
+              <img src="./images/css3.png" alt="CSS3" />
+              <img src="./images/js.png" alt="JavaScript" />
+              <img src="./images/bootstrap.png" alt="Bootstrap" />
+              <img src="./images/react.png" alt="React.js" />
+              <img src="./images/python.webp" alt="Python" />
+              <img src="./images/sql.png" alt="SQL" />
+            </div>
+            <div class="projects">
+              <h2>My personal react projects:</h2>
+              <div class="project">
+                <div class="card-group">
+                  <div class="card">
+                    <img src="./images/tenzies.png" class="card-img-top" alt="Tenzies">
+                    <div class="card-body">
+                      <h5 class="card-title">Tenzies</h5>
+                      <a href="https://anastasiia-smith.github.io/tenzies/" target="_blank" class="card-link">Show</a>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img src="./images/airbnb.png" class="card-img-top" alt="Airbnb clone">
+                    <div class="card-body">
+                      <h5 class="card-title">Airbnb clone</h5>
+                      <a href="https://anastasiia-smith.github.io/airbnb-clone/" target="_blank" class="card-link">Show</a>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img src="./images/meme.png" class="card-img-top" alt="Meme generator">
+                    <div class="card-body">
+                      <h5 class="card-title">Meme generator</h5>
+                      <a href="https://anastasiia-smith.github.io/meme-generator/" target="_blank" class="card-link">Show</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="projects">
+              <h2>My business projects:</h2>
+              <div class="project">
+                <h3><a href="https://www.alunahealth.com/products" target="_blank">Aluna health</a></h3>
+                <div id="analyticsCarousel" class="carousel slide carousel-fade" data-interval="false">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="./images/projects/analytics/configure-page.png" alt="Configure page" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/analytics/explore-page.png" alt="Explore page" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/analytics/annotate-page.png" alt="Annotate page" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/analytics/quality-page-1.png" alt="Quality page" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/analytics/quality-page-2.png" alt="Quality page" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/analytics/results-page.png" alt="Results page" />
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#analyticsCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#analyticsCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project">
+                <h3>MIT labs</h3>
+                <div id="mitCarousel" class="carousel slide carousel-fade" data-interval="false">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="./images/projects/MIT/customize-popover.png" alt="Customize popover" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/MIT/details-page.png" alt="Details page" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/MIT/list-view.png" alt="List view" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/MIT/map-view-filter.png" alt="Map view" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/MIT/map-view-lab-preview.png" alt="Map view" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/MIT/map-view.png" alt="Map view" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/MIT/MIT-results.png" alt="Results" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/MIT/popup.png" alt="Popup" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/MIT/run-project-results-change.png" alt="Run project change" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/MIT/run-project-results.png" alt="Run project results" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/MIT/run-project.png" alt="Run project" />
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#mitCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#mitCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project">
+                <h3><a href="https://volna-media.ru/" target="_blank">Volna</a></h3>
+                <div id="volnaCarousel" class="carousel slide carousel-fade" data-interval="false">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="./images/projects/volna/home-page-slider.png" alt="Home" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/volna/contacts-page.png" alt="Contacts" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/volna/about-page.png" alt="About" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/volna/how-it-works-page.png" alt="How it works" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/volna/music-page.png" alt="Music page" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./images/projects/volna/service-page.png" alt="Service page" />
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#volnaCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#volnaCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-        <h2>Here is some of my projects:</h2>
-        <div class="projects">
-          <div class="project">
-            <h2>Analytics</h2>
-            <img src="./images/projects/analytics/annotate-page.png" alt="Annotate page" />
-            <img src="./images/projects/analytics/configure-page.png" alt="Configure page" />
-            <img src="./images/projects/analytics/explore-page.png" alt="Explore page" />
-            <img src="./images/projects/analytics/quality-page-1.png" alt="Quality page" />
-            <img src="./images/projects/analytics/quality-page-2.png" alt="Quality page" />
-            <img src="./images/projects/analytics/results-page.png" alt="Results page" />
-          </div>
-          <div class="project">
-            <h2>MIT labs</h2>
-            <img src="./images/projects/MIT/customize-popover.png" alt="Customize popover" />
-            <img src="./images/projects/MIT/details-page.png" alt="Details page" />
-            <img src="./images/projects/MIT/list-view.png" alt="List view" />
-            <img src="./images/projects/MIT/map-view-filter.png" alt="Map view" />
-            <img src="./images/projects/MIT/map-view-lab-preview.png" alt="Map view" />
-            <img src="./images/projects/MIT/map-view.png" alt="Map view" />
-            <img src="./images/projects/MIT/MIT-results.png" alt="Results" />
-            <img src="./images/projects/MIT/popup.png" alt="Popup" />
-            <img src="./images/projects/MIT/run-project-results-change.png" alt="Run project change" />
-            <img src="./images/projects/MIT/run-project-results.png" alt="Run project results" />
-            <img src="./images/projects/MIT/run-project.png" alt="Run project" />
-          </div>
-          <div class="project">
-            <h2><a href="https://volna-media.ru/">Volna</a></h2>
-            <img src="./images/projects/volna/about-page.png" alt="About" />
-            <img src="./images/projects/volna/contacts-page.png" alt="Contacts" />
-            <img src="./images/projects/volna/home-page-slider.png" alt="Home" />
-            <img src="./images/projects/volna/home-page.png" alt="Home" />
-            <img src="./images/projects/volna/how-it-works-page.png" alt="How it works" />
-            <img src="./images/projects/volna/music-page.png" alt="" />
-            <img src="./images/projects/volna/service-page.png" alt="" />
-          </div>
-        </div>
-    </section>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
