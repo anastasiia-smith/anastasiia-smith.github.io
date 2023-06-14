@@ -1,3 +1,0 @@
-# [Portfolio](anastasiia-smith.github.io)
-
-Under construction...
