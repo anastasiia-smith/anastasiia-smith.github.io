@@ -1,28 +1,646 @@
-.container
-  width: 1120px
-  margin: 0 auto
+.app
   position: relative
-  
-.about
-  margin: 5rem 0
+  min-height: 100vh
+  overflow-x: clip
+
+.container
+  width: 100%
+  max-width: var(--max-width)
+  margin: 0 auto
+  padding: 0 1.5rem
+
+// ——— Header ———
+.header
+  position: sticky
+  top: 0
+  z-index: 100
+  background: color-mix(in srgb, var(--bg) 92%, transparent)
+  backdrop-filter: blur(12px)
+  border-bottom: 1px solid var(--border)
+
+.header__inner
+  display: flex
+  align-items: center
+  justify-content: space-between
+  gap: 1rem
+  min-height: var(--header-h)
+  padding: 0.5rem 0
+
+.header__brand
+  display: flex
+  align-items: center
+  gap: 0.65rem
   font-weight: 700
-  font-size: 3.5rem
-  line-height: 80px
-  letter-spacing: 1px
-  color: #101214
+  font-size: 1.125rem
+  letter-spacing: -0.02em
 
-.construction
+.header__mark
+  width: 36px
+  height: 36px
+  flex-shrink: 0
+  border-radius: 50%
+  object-fit: cover
+  display: block
+
+.header__nav
+  display: flex
+  align-items: center
+  gap: 1.75rem
+
+  @media (max-width: 768px)
+    display: none
+
+.header__link
+  font-size: 0.875rem
+  font-weight: 500
+  color: var(--text-muted)
+  transition: color var(--transition)
+
+  &:hover,
+  &.is-active
+    color: var(--text)
+
+.header__cta
+  display: inline-flex
+  align-items: center
+  gap: 0.4rem
+  padding: 0.55rem 1.15rem
+  background: var(--text)
+  color: var(--surface)
+  font-size: 0.8125rem
+  font-weight: 600
+  border-radius: var(--radius-pill)
+  border: none
+  cursor: pointer
+  transition: background var(--transition), transform var(--transition)
+
+  &:hover
+    background: var(--accent-primary)
+
+  &:active
+    transform: scale(0.98)
+
+.header__cta-icon
+  width: 16px
+  height: 16px
+  opacity: 0.9
+
+// Mobile nav
+.header__burger
+  display: none
+  background: none
+  border: none
+  padding: 0.5rem
+  cursor: pointer
+  color: var(--text)
+
+  @media (max-width: 768px)
+    display: grid
+    place-items: center
+
+.header__mobile
+  display: none
+  border-top: 1px solid var(--border)
+  padding: 1rem 0 1.25rem
+  flex-direction: column
+  gap: 0.75rem
+
+  &.is-open
+    display: flex
+
+  @media (min-width: 769px)
+    display: none !important
+
+.header__mobile .header__link
+  padding: 0.35rem 0
+
+// ——— Social rail ———
+.social-rail
   position: fixed
-  left: -50%
+  left: 0
   top: 50%
-  padding: 1rem
-  background-color: yellow
-  width: 200%
-  border: 2px solid black
-  text-align: center
-  transform: rotate(20deg)
-  font-weight: bold
-  &:nth-child(2)
-    transform: rotate(-30deg)
-    
+  transform: translateY(-50%)
+  z-index: 50
+  display: flex
+  flex-direction: column
+  gap: 0.75rem
+  padding: 1rem 0.75rem
+  background: var(--surface)
+  border: 1px solid var(--border)
+  border-left: none
+  border-radius: 0 var(--radius) var(--radius) 0
+  box-shadow: var(--shadow)
 
+  @media (max-width: 1100px)
+    display: none
+
+.social-rail__link
+  display: grid
+  place-items: center
+  width: 40px
+  height: 40px
+  border-radius: 10px
+  color: var(--text-muted)
+  transition: color var(--transition), background var(--transition)
+
+  &:hover
+    color: var(--accent-secondary)
+    background: var(--accent-secondary-soft)
+
+.social-rail__icon
+  width: 20px
+  height: 20px
+
+// ——— Hero ———
+.hero
+  position: relative
+  padding: 2.5rem 0 4rem
+
+.hero__blobs
+  position: absolute
+  inset: 0
+  pointer-events: none
+  overflow: hidden
+
+.hero__blob
+  position: absolute
+  border-radius: 50%
+  filter: blur(80px)
+  opacity: 0.35
+
+  &--purple
+    width: min(55vw, 420px)
+    height: min(55vw, 420px)
+    background: var(--accent-secondary)
+    top: -5%
+    right: 10%
+
+  &--coral
+    width: min(50vw, 380px)
+    height: min(50vw, 380px)
+    background: var(--accent-warm)
+    bottom: 15%
+    left: -5%
+
+  &--cream
+    width: min(40vw, 300px)
+    height: min(40vw, 300px)
+    background: #e8ddd4
+    top: 40%
+    left: 30%
+
+.hero__grid
+  position: relative
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: 2rem
+  align-items: center
+
+  @media (max-width: 900px)
+    grid-template-columns: 1fr
+    text-align: center
+
+.hero__visual
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  min-height: 360px
+
+.hero__swirl
+  position: absolute
+  width: min(100%, 420px)
+  height: min(100%, 420px)
+  pointer-events: none
+  color: var(--accent-warm)
+  opacity: 0.55
+
+  @media (prefers-reduced-motion: no-preference)
+    animation: hero-swirl 28s linear infinite
+
+@keyframes hero-swirl
+  to
+    transform: rotate(360deg)
+
+.hero__portrait-wrap
+  position: relative
+  z-index: 2
+  max-width: min(100%, 400px)
+  display: block
+  text-decoration: none
+  color: inherit
+  border-radius: 12px
+  cursor: pointer
+  transition: transform var(--transition), box-shadow var(--transition)
+
+  &:hover .hero__portrait
+    opacity: 0.92
+
+  &:hover
+    transform: scale(1.01)
+
+  &:focus-visible
+    outline: 2px solid var(--accent-secondary)
+    outline-offset: 6px
+
+  @media (prefers-reduced-motion: reduce)
+    transition: none
+
+    &:hover
+      transform: none
+
+.hero__portrait
+  width: 100%
+  height: auto
+  border-radius: inherit
+  transition: opacity var(--transition)
+  vertical-align: middle
+
+.hero__content
+  position: relative
+  z-index: 2
+  padding: 1rem 0
+
+.hero__title
+  margin: 0 0 0.5rem
+  font-size: clamp(2.25rem, 5vw, 3.75rem)
+  font-weight: 700
+  letter-spacing: -0.03em
+  line-height: 1.1
+
+.hero__tagline
+  margin: 0 0 1.25rem
+  font-size: 0.8125rem
+  font-weight: 600
+  letter-spacing: 0.2em
+  color: var(--text-muted)
+  text-transform: uppercase
+
+.hero__lead
+  margin: 0
+  max-width: 28rem
+  font-size: 1.05rem
+  color: var(--text-muted)
+  line-height: 1.65
+
+  @media (max-width: 900px)
+    margin-left: auto
+    margin-right: auto
+
+// ——— Sections ———
+.section
+  padding: 4rem 0
+
+.section__head
+  margin-bottom: 2.25rem
+
+.section__title
+  margin: 0 0 0.35rem
+  font-size: 1.75rem
+  font-weight: 700
+  letter-spacing: -0.02em
+
+.section__subtitle
+  margin: 0
+  font-size: 0.9375rem
+  color: var(--text-muted)
+
+// About / Contact blocks
+.prose
+  max-width: 42rem
+  color: var(--text-muted)
+  line-height: 1.7
+
+  p
+    margin: 0 0 1rem
+
+.contact-links
+  display: flex
+  flex-wrap: wrap
+  gap: 1rem
+  margin-top: 1.5rem
+
+.contact-links__a
+  font-weight: 600
+  color: var(--accent-primary)
+  text-decoration: underline
+  text-underline-offset: 4px
+
+  &:hover
+    color: var(--accent-secondary)
+
+// ——— Experience ———
+.experience__list
+  list-style: none
+  margin: 0
+  padding: 0
+  display: flex
+  flex-direction: column
+  gap: 1.5rem
+
+.experience__item
+  margin: 0
+
+.experience__card
+  background: var(--surface)
+  border: 1px solid var(--border)
+  border-radius: var(--radius)
+  box-shadow: var(--shadow)
+  padding: 1.35rem 1.5rem 1.5rem
+  border-left: 4px solid var(--accent-primary)
+  transition: border-color var(--transition), box-shadow var(--transition)
+
+  &:hover
+    border-left-color: var(--accent-warm)
+    box-shadow: 0 16px 48px rgba(107, 45, 60, 0.07)
+
+.experience__head
+  margin-bottom: 1rem
+
+.experience__company
+  margin: 0 0 0.25rem
+  font-size: 1.25rem
+  font-weight: 700
+  letter-spacing: -0.02em
+
+.experience__role
+  margin: 0 0 0.35rem
+  font-size: 0.9375rem
+  font-weight: 600
+  color: var(--text)
+
+.experience__meta
+  margin: 0
+  font-size: 0.875rem
+  color: var(--text-muted)
+
+.experience__meta-sep
+  margin: 0 0.35rem
+
+.experience__period
+  font-weight: 500
+  color: var(--text)
+
+.experience__highlights
+  margin: 0 0 1rem
+  padding-left: 1.15rem
+  color: var(--text-muted)
+  line-height: 1.65
+
+  li
+    margin-bottom: 0.45rem
+
+    &:last-child
+      margin-bottom: 0
+
+.experience__stack
+  margin: 0 0 1rem
+  font-size: 0.875rem
+  color: var(--text-muted)
+  line-height: 1.6
+  padding: 0.65rem 0.85rem
+  background: var(--accent-secondary-soft)
+  border-radius: 8px
+  border: 1px solid color-mix(in srgb, var(--accent-secondary) 18%, transparent)
+
+.experience__stack-label
+  display: block
+  font-size: 0.6875rem
+  font-weight: 700
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  color: var(--text)
+  margin-bottom: 0.35rem
+
+.experience__projects
+  margin-top: 1rem
+  padding-top: 1rem
+  border-top: 1px solid var(--border)
+
+.experience__projects-label
+  margin: 0 0 0.5rem
+  font-size: 0.75rem
+  font-weight: 700
+  letter-spacing: 0.12em
+  text-transform: uppercase
+  color: var(--text-muted)
+
+.experience__projects-list
+  margin: 0
+  padding-left: 1.15rem
+  color: var(--text-muted)
+  line-height: 1.65
+  font-size: 0.9375rem
+
+  li
+    margin-bottom: 0.4rem
+
+    &:last-child
+      margin-bottom: 0
+
+.experience__project-name
+  font-weight: 600
+  color: var(--text)
+
+.experience__project-link
+  font-weight: 600
+  color: var(--accent-primary)
+  text-decoration: underline
+  text-underline-offset: 3px
+
+  &:hover
+    color: var(--accent-secondary)
+
+.experience__project-desc
+  font-weight: 400
+
+// ——— Portfolio ———
+.portfolio__grid
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr))
+  gap: 1.5rem
+
+.project-card
+  background: var(--surface)
+  border-radius: var(--radius)
+  border: 1px solid var(--border)
+  overflow: hidden
+  box-shadow: var(--shadow)
+  display: flex
+  flex-direction: column
+  transition: border-color var(--transition), box-shadow var(--transition)
+
+  &:hover
+    border-color: color-mix(in srgb, var(--accent-secondary) 35%, var(--border))
+    box-shadow: 0 16px 48px rgba(124, 58, 237, 0.08)
+
+.project-card__media
+  position: relative
+  aspect-ratio: 16 / 10
+  background: #eee
+  overflow: hidden
+
+.project-card__img
+  width: 100%
+  height: 100%
+  object-fit: cover
+  object-position: top center
+
+.project-card__body
+  padding: 1.15rem 1.25rem 1.25rem
+  display: flex
+  flex-direction: column
+  flex: 1
+  gap: 0.75rem
+
+.project-card__title
+  margin: 0
+  font-size: 1.125rem
+  font-weight: 700
+
+.project-card__summary
+  margin: 0
+  font-size: 0.875rem
+  color: var(--text-muted)
+  flex: 1
+  line-height: 1.55
+
+.project-card__actions
+  display: flex
+  flex-wrap: wrap
+  gap: 0.5rem
+
+.btn
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  padding: 0.45rem 0.9rem
+  font-family: inherit
+  font-size: 0.8125rem
+  font-weight: 600
+  border-radius: 8px
+  border: 1px solid var(--border)
+  background: var(--surface)
+  color: var(--text)
+  cursor: pointer
+  transition: background var(--transition), border-color var(--transition), color var(--transition)
+
+  &:hover
+    border-color: var(--accent-secondary)
+    color: var(--accent-secondary)
+
+  &--primary
+    background: var(--accent-primary)
+    border-color: var(--accent-primary)
+    color: #fff
+
+    &:hover
+      background: var(--accent-primary-hover)
+      border-color: var(--accent-primary-hover)
+      color: #fff
+
+// ——— Modal ———
+.modal-backdrop
+  position: fixed
+  inset: 0
+  z-index: 200
+  background: rgba(26, 21, 32, 0.55)
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 1rem
+  animation: modal-in 200ms ease
+
+@keyframes modal-in
+  from
+    opacity: 0
+
+.modal
+  background: var(--surface)
+  border-radius: var(--radius)
+  width: 100%
+  max-width: 900px
+  max-height: min(90vh, 800px)
+  display: flex
+  flex-direction: column
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2)
+
+.modal__head
+  display: flex
+  align-items: center
+  justify-content: space-between
+  gap: 1rem
+  padding: 1rem 1.25rem
+  border-bottom: 1px solid var(--border)
+
+.modal__title
+  margin: 0
+  font-size: 1.125rem
+  font-weight: 700
+
+.modal__close
+  width: 40px
+  height: 40px
+  border: none
+  background: var(--bg)
+  border-radius: 8px
+  cursor: pointer
+  font-size: 1.25rem
+  line-height: 1
+  color: var(--text-muted)
+  transition: background var(--transition), color var(--transition)
+
+  &:hover
+    background: var(--accent-secondary-soft)
+    color: var(--accent-secondary)
+
+.modal__body
+  padding: 1rem 1.25rem 1.25rem
+  overflow-y: auto
+  flex: 1
+
+.modal__gallery
+  display: flex
+  flex-direction: column
+  gap: 1rem
+
+.modal__shot
+  border-radius: 8px
+  overflow: hidden
+  border: 1px solid var(--border)
+  background: #f3f3f3
+
+.modal__shot img
+  width: 100%
+  height: auto
+  vertical-align: middle
+
+.sr-only
+  position: absolute
+  width: 1px
+  height: 1px
+  padding: 0
+  margin: -1px
+  overflow: hidden
+  clip: rect(0, 0, 0, 0)
+  white-space: nowrap
+  border: 0
+
+  &:focus
+    position: fixed
+    top: 0.75rem
+    left: 0.75rem
+    z-index: 1000
+    width: auto
+    height: auto
+    margin: 0
+    padding: 0.65rem 1rem
+    clip: auto
+    overflow: visible
+    white-space: normal
+    background: var(--surface)
+    color: var(--text)
+    border: 2px solid var(--accent-secondary)
+    border-radius: 8px
+    font-weight: 600
+    font-size: 0.875rem
